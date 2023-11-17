@@ -4,6 +4,10 @@
   padding: 2rem;
   text-align: center;
 }
+.body, h1, h2, h3, p, div {
+  margin: 0;
+  padding: 0;
+}
 
 .logo {
   height: 6em;
@@ -73,4 +77,109 @@
   100% {
     transform: rotate(360deg);
   }
+}
+
+/*Purchases*/
+.button-login {
+   
+    width: 50%;
+    background-Color: #d8f5fd;
+    margin-top: 5%;
+    margin-left: 25%;
+    border-radius: 5%;
+}
+.name-login{
+  text-align: end;
+}
+
+.img-login {
+  margin-top: 50px;
+  height: 100px;
+  width: 100px;
+}
+
+/*Product detail*/
+
+.product-detail{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+
+
+.detail-description {
+  margin-top: 50px;
+}
+
+.p-detail {
+  font-size: 13px;
+  text-align: justify;
+}
+
+.quantity-detail{
+ display: grid;
+ grid-template-columns: repeat(2, 1fr);
+}
+
+.btn-detail {
+ height: 40px;
+  width: 290px;
+  background-color: darkcyan;
+  border: none;
+}
+
+.mat-detail {
+  width: 40px;
+  height: 40px;
+}
+
+/*side purchases*/
+
+.side-purchases {
+  display: flex;
+  flex-direction: row;
+  
+}
+
+.title-side {
+  font-size: 11px;
+  margin-left: 3px;
+  margin-top: 50px;
+  max-width: 90px;
+}
+
+.quantity-sides {
+  font-size: 16px;
+  margin-top: 46px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  border: solid #000000ce;
+}
+
+.btn-side{
+  width: 30px;
+  height: 30px;
+  
+  margin-top: 46px;
+}
+
+.price-side {
+  font-size: 16px;
+  margin-left: 3px;
+  margin-top: 90px;
+}
+
+.delete-side {
+  width: 30px;
+  height: 30px;
+  margin-top: 46px;
+  margin-left: 20px;
+  
+}
+
+.check-side{
+  display:flex;
+  align-items: center;
+  margin-left: 30px;
 }

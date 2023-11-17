@@ -3,6 +3,7 @@ import Form from "react-bootstrap/Form";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import userimg from '../assets/user.png'
 
 const Login = () => {
   const { register, handleSubmit } = useForm();
@@ -35,10 +36,13 @@ const Login = () => {
 
 
   return (
-    <>
+    <div>
     {
-      token ? <Button onClick={logout} >cerrar sesión </Button> :
-
+        token ? <div  className="button-login" >
+                    <img src={userimg} alt="" className="img-login"/>
+                    <p  >kevin Villarruel</p>
+                    <Button onClick={logout} style={{ marginTop:'10%', marginBottom:'5%', borderRadius:'5%' }} >cerrar sesión </Button>
+                </div>  :
     <div>
       <Form
         style={{
@@ -50,28 +54,36 @@ const Login = () => {
         onSubmit={handleSubmit(submit)}
       >
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control
+          <Form.Label style={{backgroundColor:'#d8f5fd', height: '90%', width: '90%',}}> 
+            <h3>Test data</h3>
+            <h6>Enter your email and password for continue</h6>
+                <ul style={{ listStyle: 'none', textAlign: "left" }} >
+                  <li>akevinkaiz@gmail.com</li>
+                  <li>123456</li>
+                </ul>
+          </Form.Label>
+          <h6 style={{textAlign: "left" }}>Email</h6>
+          <Form.Control style={{textAlign: "left" }}
             type="email"
-            placeholder="Enter email"
+            placeholder=""
             {...register("email")}
           />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
+        </Form.Group >
+        <Form.Group className="mb-3" controlId="formBasicPassword" style={{textAlign: "left" }} >
+          <Form.Label >Password</Form.Label>
           <Form.Control
             type="password"
-            placeholder="Password"
+            //placeholder="Password"
             {...register("password")}
           /> 
         </Form.Group>
-        <Button variant="primary" type="submit">
-          Iniciar sesión
+        <Button style={{ width: '100%', height: '100%' }} variant="primary" type="submit">
+          Login
         </Button>
       </Form>
     </div>
     }
-    </>
+    </div>
   );
 };
 

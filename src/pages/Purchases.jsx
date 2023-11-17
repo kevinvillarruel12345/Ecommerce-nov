@@ -22,15 +22,22 @@ const Purchases = () => {
     <div>
         {getPurchases.map((item) => (
              <Card style={{ width: '100%', display: 'flex', flexDirection: 'row' }} key={item.id}>
-             <Card.Img variant="top" style={{ width: '30%' }} src={item.product.images?.[0].url} />
-             <Card.Body>
-               <Card.Title>{item.product.title} N:{item.quantity}</Card.Title>
-               <Card.Text>
-                 Some quick example text to build on the card title and make up the
-                 bulk of the card's content.
-               </Card.Text>
-             </Card.Body>
-           </Card>
+  <Card.Img variant="top" style={{ width: '22%', maxHeight: '140px' }} src={item.product.images?.[0].url} />
+  <Card.Body style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', maxWidth: '500px', marginLeft:'400px' }}>
+    <Card.Title style={{ fontSize: '14px', marginBottom: '8px' }}>{item.product.title}</Card.Title>
+    <div style={{ display: 'flex',  width: '100%', alignItems: 'center' }}>
+      <div style={{ display: 'flex', alignItems: 'center',  }}>
+        <Card style={{ height: '10%', width: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginRight: '16px' }}>
+          {item.quantity}
+        </Card>
+        <Card.Text>
+          ${item.product.price}
+        </Card.Text>
+      </div>
+    </div>
+  </Card.Body>
+</Card>
+
         ))
         
         }

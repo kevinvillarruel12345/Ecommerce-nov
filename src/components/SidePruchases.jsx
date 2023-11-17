@@ -1,7 +1,13 @@
 import { useEffect, useState } from "react";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { useDispatch, useSelector } from "react-redux";
-import { getCarThunk, addProductsThunk, deleteSideProductThunk, editSideProductThunk, editCar } from "../store/slices/car.slice";
+import {
+  getCarThunk,
+  addProductsThunk,
+  deleteSideProductThunk,
+  editSideProductThunk,
+  editCar,
+} from "../store/slices/car.slice";
 import Button from "react-bootstrap/Button";
 
 // SidePruchases.js
@@ -10,7 +16,7 @@ import Button from "react-bootstrap/Button";
 const SidePruchases = ({ show, handleClose }) => {
   const dispatch = useDispatch();
 
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem("token");
 
   useEffect(() => {
     if (token) {
@@ -31,23 +37,23 @@ const SidePruchases = ({ show, handleClose }) => {
   return (
     <Offcanvas show={show} onHide={handleClose} placement="end">
       <Offcanvas.Header closeButton>
-        <Offcanvas.Title>Tus productos</Offcanvas.Title>
+        <Offcanvas.Title>Carrito de compras</Offcanvas.Title>
       </Offcanvas.Header>
       <Offcanvas.Body>
-        <ul>
+        <ul style={{ display:'initial'}} >
           {products.map((item) => (
-            <li
+            <li className="side-purchases"
               key={item.id}
-              style={{ border: "1px solid black", marginBottom: "1rem" }}
+              style={{  marginBottom: "1rem" }}
             >
-              <h5>{item.product.title}</h5>
               <img
                 src={item.product.images?.[0].url}
                 alt=""
-                style={{ width: 100, objectFit: "contain" }}
+                style={{ width: '100px', objectFit: "contain" }}
               />
-              <h5>{item.quantity}</h5>
-              <button
+              <h5 className="title-side">{item.product.title}</h5>
+              
+              <button className="btn-side"
                 onClick={() =>
                   dispatch(
                     editCar({
@@ -59,8 +65,8 @@ const SidePruchases = ({ show, handleClose }) => {
               >
                 +
               </button>
-
-              <button
+              <h5 className="quantity-sides">{item.quantity}</h5>
+              <button className="btn-side"
                 onClick={() =>
                   dispatch(
                     editCar({
@@ -72,14 +78,17 @@ const SidePruchases = ({ show, handleClose }) => {
               >
                 -
               </button>
-              <h5>${item.product.price}</h5>
-              <button onClick={() => dispatch(deleteSideProductThunk(item.id))}>
-                delete
+              <button className="delete-side" onClick={() => dispatch(deleteSideProductThunk(item.id))}>
+                de
               </button>
+              <h5 className="price-side">${item.product.price}</h5>
             </li>
           ))}
         </ul>
-        <button onClick={() => dispatch(addProduct())}>Checkout</button>
+        <div className="check-side">
+
+          <button style={{backgroundColor:'#2789E3', border:'none', width:'300px', height:'40px',  }} onClick={() => dispatch(addProduct())}>Checkout</button>
+        </div>
       </Offcanvas.Body>
     </Offcanvas>
   );
