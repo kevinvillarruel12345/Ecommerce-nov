@@ -9,6 +9,8 @@ import {
   editCar,
 } from "../store/slices/car.slice";
 import Button from "react-bootstrap/Button";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope, faTrash } from '@fortawesome/free-solid-svg-icons'
 
 // SidePruchases.js
 // ... importaciones ...
@@ -24,14 +26,14 @@ const SidePruchases = ({ show, handleClose }) => {
     }
   }, []);
 
-  // Cambia state.quantity a state.car para reflejar la estructura del estado
+  
   const totalProduct = useSelector((state) => state.car.length);
 
   const addProduct = () => {
     dispatch(addProductsThunk(totalProduct));
   };
 
-  // Cambia state.quantity a state.car
+
   const products = useSelector((state) => state.car);
 
   return (
@@ -79,7 +81,7 @@ const SidePruchases = ({ show, handleClose }) => {
                 -
               </button>
               <button className="delete-side" onClick={() => dispatch(deleteSideProductThunk(item.id))}>
-                de
+              <FontAwesomeIcon style={{color:'red',  width:'20px', height:'30px', display:'flex', alignItems:'center',  } } icon={faTrash}/>
               </button>
               <h5 className="price-side">${item.product.price}</h5>
             </li>
